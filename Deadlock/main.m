@@ -5,13 +5,25 @@
 //  Created by huangkun on 2019/8/1.
 //  Copyright © 2019 huangkun. All rights reserved.
 //
+// https://www.cocoawithlove.com/2010/06/avoiding-deadlocks-and-latency-in.html
 
 #import <Foundation/Foundation.h>
+#import "MYCache.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        MYCache *cache = [MYCache new];
+        dispatch_queue_t testQueue = dispatch_queue_create("Test Queue", DISPATCH_QUEUE_CONCURRENT);
+        dispatch_group_t group = dispatch_group_create();
+        for (int i = 0; i < 100; i++) {
+            dispatch_group_async(group, testQueue, ^{
+                [cache setObject:@(i) forKey:@(i)];
+            });
+            dispatch_group_async(group, testQueue, ^{
+                [cache objectForKey:@(i)];
+            });
+        }
+        dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     }
     return 0;
 }

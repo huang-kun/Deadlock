@@ -8,11 +8,11 @@
 // https://www.cocoawithlove.com/2010/06/avoiding-deadlocks-and-latency-in.html
 
 #import <Foundation/Foundation.h>
-#import "MYCache.h"
+#import "RWCache.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        MYCache *cache = [MYCache new];
+        RWCache *cache = [RWCache new];
         dispatch_queue_t testQueue = dispatch_queue_create("Test Queue", DISPATCH_QUEUE_CONCURRENT);
         dispatch_group_t group = dispatch_group_create();
         for (int i = 0; i < 100; i++) {

@@ -1,19 +1,19 @@
 //
-//  MYCache.m
+//  RWCache.m
 //  Deadlock
 //
 //  Created by huangkun on 2019/8/1.
 //  Copyright © 2019 huangkun. All rights reserved.
 //
 
-#import "MYCache.h"
+#import "RWCache.h"
 
-@interface MYCache()
+@interface RWCache()
 @property (nonatomic, strong) NSMutableDictionary *memoryStorage;
 @property (nonatomic, strong) dispatch_queue_t storageQueue;
 @end
 
-@implementation MYCache
+@implementation RWCache
 
 - (instancetype)init {
     self = [super init];

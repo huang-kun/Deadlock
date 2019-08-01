@@ -1,5 +1,5 @@
 //
-//  MYCache.h
+//  RWCache.h
 //  Deadlock
 //
 //  Created by huangkun on 2019/8/1.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MYCache : NSObject
+@interface RWCache : NSObject
 
 - (void)setObject:(id)object forKey:(id <NSCopying>)key;
 

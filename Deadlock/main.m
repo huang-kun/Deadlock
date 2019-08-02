@@ -23,6 +23,7 @@ int main(int argc, const char * argv[]) {
             });
         }
         dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+        printf("No deadlock! Program will exit as normal.\n");
     }
     return 0;
 }

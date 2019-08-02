@@ -5,7 +5,6 @@
 //  Created by huangkun on 2019/8/1.
 //  Copyright © 2019 huangkun. All rights reserved.
 //
-// https://www.cocoawithlove.com/2010/06/avoiding-deadlocks-and-latency-in.html
 
 #import <Foundation/Foundation.h>
 #import "RWCache.h"
